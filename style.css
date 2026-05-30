@@ -1,0 +1,230 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background: #fff;
+  color: #5c4a52;
+  font-family: "Cormorant", Georgia, serif;
+  overflow-x: hidden;
+}
+
+/* —— Corner decorations —— */
+.decoration {
+  position: fixed;
+  width: clamp(72px, 14vw, 120px);
+  height: auto;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.92;
+  filter: drop-shadow(0 4px 12px rgba(168, 164, 191, 0.35));
+}
+
+.decoration--tl {
+  top: 1rem;
+  left: 1rem;
+  transform: rotate(-12deg);
+}
+
+.decoration--tr {
+  top: 1rem;
+  right: 1rem;
+  transform: rotate(12deg) scaleX(-1);
+}
+
+.decoration--bl {
+  bottom: 1rem;
+  left: 1rem;
+  transform: rotate(8deg);
+}
+
+.decoration--br {
+  bottom: 1rem;
+  right: 1rem;
+  transform: rotate(-8deg) scaleX(-1);
+}
+
+/* —— Main content —— */
+.page {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem 3rem;
+  text-align: center;
+}
+
+.title {
+  font-family: "Cormorant", Georgia, serif;
+  font-size: clamp(2.5rem, 8vw, 4.25rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: rgb(168, 164, 191);
+  text-shadow: 0 2px 24px rgba(168, 164, 191, 0.45);
+  margin-bottom: 2rem;
+  line-height: 1.15;
+  animation: title-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes title-glow {
+  from {
+    text-shadow: 0 2px 20px rgba(168, 164, 191, 0.35);
+  }
+  to {
+    text-shadow: 0 4px 32px rgba(168, 164, 191, 0.65);
+  }
+}
+
+.video-wrap {
+  width: 100%;
+  max-width: 640px;
+  padding: 0.5rem;
+  background: linear-gradient(145deg, rgb(248, 247, 252), rgb(236, 235, 246));
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px rgba(168, 164, 191, 0.25),
+    0 0 0 1px rgba(168, 164, 191, 0.8);
+}
+
+.video {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  border-radius: 14px;
+  background: rgb(236, 235, 246);
+}
+
+.message {
+  margin-top: 1.75rem;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-style: italic;
+  font-weight: 400;
+  color: rgb(168, 164, 191);
+  letter-spacing: 0.03em;
+}
+
+/* —— Confetti (pure CSS) —— */
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.confetti span {
+  position: absolute;
+  top: -12%;
+  width: 10px;
+  height: 14px;
+  opacity: 0;
+  animation: confetti-fall 4.5s ease-out forwards;
+}
+
+.confetti span:nth-child(odd) {
+  border-radius: 2px;
+}
+
+.confetti span:nth-child(even) {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Colors & positions — 40 pieces */
+.confetti span:nth-child(1)  { left: 5%;  background: rgb(168, 164, 191); animation-delay: 0s;    animation-duration: 4.2s; }
+.confetti span:nth-child(2)  { left: 12%; background: rgb(200, 197, 218); animation-delay: 0.1s;  animation-duration: 4.8s; }
+.confetti span:nth-child(3)  { left: 18%; background: #c9e4de; animation-delay: 0.05s; animation-duration: 4.4s; }
+.confetti span:nth-child(4)  { left: 25%; background: #f9dcc4; animation-delay: 0.15s; animation-duration: 5s; }
+.confetti span:nth-child(5)  { left: 32%; background: rgb(200, 197, 218); animation-delay: 0.08s; animation-duration: 4.6s; }
+.confetti span:nth-child(6)  { left: 38%; background: rgb(168, 164, 191); animation-delay: 0.2s;  animation-duration: 4.3s; }
+.confetti span:nth-child(7)  { left: 45%; background: rgb(220, 218, 232); animation-delay: 0.12s; animation-duration: 4.9s; }
+.confetti span:nth-child(8)  { left: 52%; background: #b8e0d2; animation-delay: 0.18s; animation-duration: 4.5s; }
+.confetti span:nth-child(9)  { left: 58%; background: rgb(200, 197, 218); animation-delay: 0.03s; animation-duration: 5.1s; }
+.confetti span:nth-child(10) { left: 65%; background: rgb(140, 136, 165); animation-delay: 0.22s; animation-duration: 4.7s; }
+.confetti span:nth-child(11) { left: 72%; background: rgb(200, 197, 218); animation-delay: 0.1s;  animation-duration: 4.4s; }
+.confetti span:nth-child(12) { left: 78%; background: rgb(168, 164, 191); animation-delay: 0.25s; animation-duration: 4.8s; }
+.confetti span:nth-child(13) { left: 85%; background: #c9e4de; animation-delay: 0.14s; animation-duration: 4.2s; }
+.confetti span:nth-child(14) { left: 92%; background: #f9dcc4; animation-delay: 0.06s; animation-duration: 5s; }
+.confetti span:nth-child(15) { left: 8%;  background: rgb(200, 197, 218); animation-delay: 0.3s;  animation-duration: 4.6s; }
+.confetti span:nth-child(16) { left: 22%; background: #b8e0d2; animation-delay: 0.28s; animation-duration: 4.3s; }
+.confetti span:nth-child(17) { left: 48%; background: rgb(168, 164, 191); animation-delay: 0.35s; animation-duration: 4.9s; }
+.confetti span:nth-child(18) { left: 68%; background: rgb(200, 197, 218); animation-delay: 0.32s; animation-duration: 4.5s; }
+.confetti span:nth-child(19) { left: 88%; background: rgb(140, 136, 165); animation-delay: 0.38s; animation-duration: 5.2s; }
+.confetti span:nth-child(20) { left: 3%;  background: rgb(220, 218, 232); animation-delay: 0.4s;  animation-duration: 4.4s; }
+.confetti span:nth-child(21) { left: 15%; background: #f9dcc4; animation-delay: 0.45s; animation-duration: 4.7s; }
+.confetti span:nth-child(22) { left: 35%; background: #c9e4de; animation-delay: 0.42s; animation-duration: 5s; }
+.confetti span:nth-child(23) { left: 55%; background: rgb(200, 197, 218); animation-delay: 0.48s; animation-duration: 4.2s; }
+.confetti span:nth-child(24) { left: 75%; background: rgb(168, 164, 191); animation-delay: 0.5s;  animation-duration: 4.8s; }
+.confetti span:nth-child(25) { left: 95%; background: #b8e0d2; animation-delay: 0.52s; animation-duration: 4.6s; }
+.confetti span:nth-child(26) { left: 7%;  background: rgb(200, 197, 218); animation-delay: 0.55s; animation-duration: 4.3s; }
+.confetti span:nth-child(27) { left: 28%; background: rgb(140, 136, 165); animation-delay: 0.58s; animation-duration: 5.1s; }
+.confetti span:nth-child(28) { left: 42%; background: rgb(220, 218, 232); animation-delay: 0.6s;  animation-duration: 4.5s; }
+.confetti span:nth-child(29) { left: 62%; background: #f9dcc4; animation-delay: 0.62s; animation-duration: 4.9s; }
+.confetti span:nth-child(30) { left: 82%; background: #c9e4de; animation-delay: 0.65s; animation-duration: 4.4s; }
+.confetti span:nth-child(31) { left: 10%; background: rgb(200, 197, 218); animation-delay: 0.2s;  animation-duration: 4.1s; transform: rotate(25deg); }
+.confetti span:nth-child(32) { left: 30%; background: rgb(168, 164, 191); animation-delay: 0.35s; animation-duration: 4.6s; transform: rotate(-15deg); }
+.confetti span:nth-child(33) { left: 50%; background: #b8e0d2; animation-delay: 0.5s;  animation-duration: 5s;   transform: rotate(40deg); }
+.confetti span:nth-child(34) { left: 70%; background: rgb(200, 197, 218); animation-delay: 0.25s; animation-duration: 4.3s; transform: rotate(-30deg); }
+.confetti span:nth-child(35) { left: 90%; background: rgb(140, 136, 165); animation-delay: 0.4s;  animation-duration: 4.8s; transform: rotate(10deg); }
+.confetti span:nth-child(36) { left: 20%; background: rgb(220, 218, 232); animation-delay: 0.7s;  animation-duration: 4.2s; }
+.confetti span:nth-child(37) { left: 40%; background: rgb(168, 164, 191); animation-delay: 0.75s; animation-duration: 4.7s; }
+.confetti span:nth-child(38) { left: 60%; background: #f9dcc4; animation-delay: 0.8s;  animation-duration: 4.5s; }
+.confetti span:nth-child(39) { left: 80%; background: #c9e4de; animation-delay: 0.85s; animation-duration: 5s; }
+.confetti span:nth-child(40) { left: 50%; background: rgb(200, 197, 218); animation-delay: 0.9s;  animation-duration: 4.4s; }
+
+@keyframes confetti-fall {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg) translateX(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(28vh) rotate(180deg) translateX(12px);
+  }
+  50% {
+    opacity: 0.9;
+    transform: translateY(55vh) rotate(360deg) translateX(-10px);
+  }
+  75% {
+    opacity: 0.6;
+    transform: translateY(82vh) rotate(540deg) translateX(8px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(110vh) rotate(720deg) translateX(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .decoration {
+    width: clamp(56px, 18vw, 80px);
+  }
+
+  .decoration--tl,
+  .decoration--tr {
+    top: 0.5rem;
+  }
+
+  .decoration--bl,
+  .decoration--br {
+    bottom: 0.5rem;
+  }
+
+  .page {
+    padding-top: 4.5rem;
+  }
+}
