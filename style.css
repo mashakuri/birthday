@@ -18,41 +18,6 @@ body {
   overflow-x: hidden;
 }
 
-/* —— Corner decorations —— */
-.decoration {
-  position: fixed;
-  width: clamp(72px, 14vw, 120px);
-  height: auto;
-  pointer-events: none;
-  z-index: 2;
-  opacity: 0.92;
-  filter: drop-shadow(0 4px 12px rgba(168, 164, 191, 0.35));
-}
-
-.decoration--tl {
-  top: 1rem;
-  left: 1rem;
-  transform: rotate(-12deg);
-}
-
-.decoration--tr {
-  top: 1rem;
-  right: 1rem;
-  transform: rotate(12deg) scaleX(-1);
-}
-
-.decoration--bl {
-  bottom: 1rem;
-  left: 1rem;
-  transform: rotate(8deg);
-}
-
-.decoration--br {
-  bottom: 1rem;
-  right: 1rem;
-  transform: rotate(-8deg) scaleX(-1);
-}
-
 /* —— Main content —— */
 .page {
   position: relative;
@@ -206,25 +171,5 @@ body {
   100% {
     opacity: 0;
     transform: translateY(110vh) rotate(720deg) translateX(0);
-  }
-}
-
-@media (max-width: 480px) {
-  .decoration {
-    width: clamp(56px, 18vw, 80px);
-  }
-
-  .decoration--tl,
-  .decoration--tr {
-    top: 0.5rem;
-  }
-
-  .decoration--bl,
-  .decoration--br {
-    bottom: 0.5rem;
-  }
-
-  .page {
-    padding-top: 4.5rem;
   }
 }
